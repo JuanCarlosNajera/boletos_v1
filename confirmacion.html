@@ -46,8 +46,8 @@
     <script>
         // Recuperar los detalles de los asientos seleccionados del almacenamiento local
         const selectedSeats = [
-            { row: 3, col: 7 },
-            { row: 3, col: 4 }
+            { row: 4, col: 7 },
+            { row: 4, col: 8 },
         ];
 
         const reservationDetailsList = document.getElementById('reservation-details');
@@ -66,7 +66,7 @@
             const qrCodeDiv = document.getElementById('qrcode');
             const clientName = 'Juan Carlos Basurto Najera';
             const dateTime = new Date().toLocaleString();
-            const qrCodeData = `Estadio: ${estadioName}\nCliente: ${clientName}\nFecha y Hora: ${dateTime}\nAsientos: Fila 1 - Asiento 1, Fila 1 - Asiento 2`;
+            const qrCodeData = `Estadio: ${estadioName}\nCliente: ${clientName}\nFecha y Hora: ${dateTime}\nAsientos: Fila 4 - Asiento 7, Fila 4 - Asiento 8`;
             const qrCode = new QRCode(qrCodeDiv, {
                 text: qrCodeData,
                 width: 300,
