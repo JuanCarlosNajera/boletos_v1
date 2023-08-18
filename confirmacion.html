@@ -44,8 +44,8 @@
     <script>
         // Recuperar los detalles de los asientos seleccionados del almacenamiento local
         const selectedSeats = [
-            { row: 0, col: 0 },
-            { row: 0, col: 1 }
+            { row: 3, col: 7 },
+            { row: 3, col: 4 }
         ];
 
         const reservationDetailsList = document.getElementById('reservation-details');
@@ -53,7 +53,8 @@
         if (selectedSeats && selectedSeats.length > 0) {
             for (const seat of selectedSeats) {
                 const seatDetails = document.createElement('li');
-                seatDetails.textContent = `Asiento: Fila ${seat.row + 1} - Asiento ${seat.col + 1}`;
+                seatDetails.textContent = `Asiento: Fila ${seat.row } - Asiento ${seat.col }`;
+                //seatDetails.textContent = `Asiento: Fila ${seat.row + 1} - Asiento ${seat.col + 1}`;
                 seatDetails.classList.add('list-group-item');
                 reservationDetailsList.appendChild(seatDetails);
             }
