@@ -45,8 +45,11 @@
             
             <button type="submit" class="btn btn-primary">Registrarse</button>
         </form>
-        
+    
     </div>
+    <nav>
+        <a class="btn btn-success" href="index.php">Regresar</a>
+    </nav>
     <!-- Agrega enlaces a los archivos JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
