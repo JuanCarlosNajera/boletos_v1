@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav>
-        <a class="btn btn-success" href="index.html">Regresar</a>
+        <a class="btn btn-success" href="apartado.html">Regresar</a>
     </nav>
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -62,7 +62,7 @@
             const qrCodeDiv = document.getElementById('qrcode');
             const clientName = 'Juan Carlos Basurto Najera';
             const dateTime = new Date().toLocaleString();
-            const qrCodeData = `Cliente: ${clientName}\nFecha y Hora: ${dateTime}\nAsientos: Fila 1 - Asiento 1, Fila 1 - Asiento 2`;
+            const qrCodeData = `Cliente: ${clientName}\nFecha y Hora: ${dateTime}\nAsientos: Fila 4 - Asiento 7, Fila 1 - Asiento 2`;
             const qrCode = new QRCode(qrCodeDiv, {
                 text: qrCodeData,
                 width: 300,
