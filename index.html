@@ -68,6 +68,25 @@
     .evento .boton-apartar:hover {
       background-color: #555;
     }
+
+    /* Estilos para el botón de cerrar sesión */
+    .boton-cerrar-sesion {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #dc3545; /* Color rojo de Bootstrap */
+      color: #fff;
+      padding: 10px 0;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton-cerrar-sesion:hover {
+      background-color: #c82333; /* Color rojo más oscuro al pasar el ratón */
+    }
+
   </style>
 </head>
 <body>
@@ -110,9 +129,12 @@
         </div>
         
     </div>
-
+   
     <!-- Agrega más eventos aquí -->
 
   </main>
 </body>
+<nav>
+  <a class="boton-cerrar-sesion" href="index.php">Cerrar Sesión</a>
+</nav>
 </html>
