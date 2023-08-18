@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pago</title>
+    <!-- Enlace a los archivos CSS de Bootstrap (Plantilla "Lux") -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #6c757d;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Registro de Pago</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center">Por favor, complete los detalles de pago para confirmar su reserva.</p>
+                        <form id="payment-form">
+                            <div class="form-group">
+                                <label for="card-number">Número de Tarjeta:</label>
+                                <input type="text" id="card-number" name="card-number" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-holder">Titular de la Tarjeta:</label>
+                                <input type="text" id="card-holder" name="card-holder" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="expiry-date">Fecha de Vencimiento:</label>
+                                <input type="text" id="expiry-date" name="expiry-date" class="form-control" placeholder="MM/YY" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cvv">CVV:</label>
+                                <input type="text" id="cvv" name="cvv" class="form-control" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Confirmar Pago</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace a los archivos JavaScript de Bootstrap y tu propio script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const paymentForm = document.getElementById('payment-form');
+
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Aquí puedes agregar la lógica para procesar el pago
+            alert('Pago confirmado. Gracias por su reserva.');
+            // Redirige al usuario a una página de confirmación o agradecimiento
+            window.location.href = 'confirmacion.html';
+        });
+    </script>
+</body>
+</html>

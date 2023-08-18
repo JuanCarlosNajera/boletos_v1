@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selección de Asientos</title>
+<style>
+    /* Estilos anteriores ... */
+
+    .seat {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+        text-align: center;
+        line-height: 30px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .taken {
+        background-color: #f00;
+        color: #fff;
+    }
+
+    .deleted {
+        background-color: #ccc;
+        color: #000;
+    }
+
+    .seats-list {
+        margin-top: 20px;
+    }
+
+    .delete-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #f00;
+        color: #fff;
+        border: none;
+        padding: 2px 5px;
+        font-size: 10px;
+        cursor: pointer;
+    }
+
+    .delete-all-button {
+        display: block;
+        margin-top: 10px;
+        background-color: rgb(24, 22, 22);
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h2>Selecciona tus asientos</h2>
+<div>
+    <div class="seat"></div> Asiento disponible
+</div>
+<div>
+    <div class="seat taken"></div> Asiento apartado
+</div>
+<div>
+    <div class="seat taken deleted">&#128465;</div> Asiento eliminado
+</div>
+<br>
+<div id="seats-container">
+</div>
+<!-- Agrega el botón de "Pagar" después de la lista de asientos apartados -->
+<div class="seats-list">
+    <h3>Asientos apartados</h3>
+    <ul id="taken-seats-list"></ul>
+    <button class="delete-all-button" onclick="deleteAllSeats()">Eliminar todos los asientos</button>
+    <a href="registro_pago.html" class="pay-button">Pagar</a>
+</div>
+
+
+<script>
+    const rows = 5;
+    const cols = 10;
+
+    const seatsContainer = document.getElementById('seats-container');
+    const takenSeatsList = document.getElementById('taken-seats-list');
+    const seats = new Array(rows).fill(null).map(() => new Array(cols).fill(false));
+
+    function renderSeats() {
+        seatsContainer.innerHTML = '';
+        takenSeatsList.innerHTML = '';
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const seat = document.createElement('div');
+                seat.className = `seat ${seats[row][col] ? 'taken' : ''}`;
+                seat.textContent = `${row + 1}-${col + 1}`;
+
+                if (seats[row][col]) {
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'delete-button';
+                    deleteButton.innerHTML = '&#128465;';
+                    deleteButton.addEventListener('click', () => deleteSeat(row, col));
+                    seat.appendChild(deleteButton);
+                } else {
+                    seat.addEventListener('click', () => toggleSeat(row, col, seat));
+                }
+
+                seatsContainer.appendChild(seat);
+            }
+            seatsContainer.appendChild(document.createElement('br'));
+        }
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                if (seats[row][col] && !document.getElementById(`seat-${row}-${col}`)) {
+                    const takenSeatItem = document.createElement('li');
+                    takenSeatItem.id = `seat-${row}-${col}`;
+                    takenSeatItem.textContent = `${row + 1}-${col + 1}`;
+                    takenSeatsList.appendChild(takenSeatItem);
+                }
+            }
+        }
+    }
+
+    function toggleSeat(row, col, seat) {
+        seats[row][col] = !seats[row][col];
+        renderSeats();
+    }
+
+    function deleteSeat(row, col) {
+        seats[row][col] = false;
+        renderSeats();
+    }
+
+    function deleteAllSeats() {
+        seats.forEach(row => row.fill(false));
+        renderSeats();
+    }
+
+    renderSeats();
+</script>
+</body>
+</html>
