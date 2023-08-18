@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <h2 class="mt-4">Iniciar Sesión</h2>
+    <h2 class="mt-4">Iniciar Sesión Perro</h2>
     <form action="login_func.php" method="POST">
       <div class="mb-3">
         <label for="loginEmail" class="form-label">Correo Electrónico:</label>
